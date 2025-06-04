@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fb8e7882468f905b6dfe53d2669033a9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                top: 10px; left: 50px; width: 800px; height: 60px; 
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:16px; padding: 8px;
+                border-radius: 5px;">
+        <h3 style="margin-top: 0; text-align: center;">Mapa de Auto Centers no Raio de 120km de Telêmaco Borba</h3>
+        <div style="text-align: center;">Total: 25 estabelecimentos - CADA PONTO É UM ESTABELECIMENTO INDIVIDUAL</div>
+    </div>
+    
+    
+    <div style="position: fixed; 
+                bottom: 10px; right: 10px; width: 300px;
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:12px; padding: 8px;
+                border-radius: 5px;">
+        <b>Instruções:</b><br>
+        • Cada ponto representa um estabelecimento individual<br>
+        • Clique em qualquer marcador para ver detalhes<br>
+        • Use a roda do mouse para zoom<br>
+        • Clique e arraste para mover o mapa
+    </div>
+    
+    
+            <div class="folium-map" id="map_fb8e7882468f905b6dfe53d2669033a9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fb8e7882468f905b6dfe53d2669033a9 = L.map(
+                "map_fb8e7882468f905b6dfe53d2669033a9",
+                {
+                    center: [-24.3245, -50.6176],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8099922d628f934115bc21f69dd0bd9c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8099922d628f934115bc21f69dd0bd9c.addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var marker_f16a4cd0ac8eaeab184537702d481bb0 = L.marker(
+                [-24.3245, -50.6176],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_89d7a9e737698f8b0fe22a7cfc6c87d3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f04421c5db692b59f1c0a00e3e517079 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8506d4685721ffdd9ea4c0ec58d3cb31 = $(`<div id="html_8506d4685721ffdd9ea4c0ec58d3cb31" style="width: 100.0%; height: 100.0%;">Telêmaco Borba - Centro do Raio de 120km</div>`)[0];
+                popup_f04421c5db692b59f1c0a00e3e517079.setContent(html_8506d4685721ffdd9ea4c0ec58d3cb31);
+            
+        
+
+        marker_f16a4cd0ac8eaeab184537702d481bb0.bindPopup(popup_f04421c5db692b59f1c0a00e3e517079)
+        ;
+
+        
+    
+    
+                marker_f16a4cd0ac8eaeab184537702d481bb0.setIcon(icon_89d7a9e737698f8b0fe22a7cfc6c87d3);
+            
+    
+            var circle_1dbdf7a7763322783fe37a09233fe242 = L.circle(
+                [-24.3245, -50.6176],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 120000, "stroke": true, "weight": 3}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var marker_5e4bcaa00f333566ea3e4c995810e182 = L.marker(
+                [-24.3245, -50.6176],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_cd59c9a5a456ec749034358c9e4a7f2c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_adccaa4835e36de116fed37d10407bfb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9d8ca023a82f24bf2e6b6bd2776174c7 = $(`<div id="html_9d8ca023a82f24bf2e6b6bd2776174c7" style="width: 100.0%; height: 100.0%;">             <b>Muniz Auto Center</b><br>             Endereço: Rua Quinze de Novembro, 548, Centro, Telêmaco Borba/PR, CEP 84265-400<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_adccaa4835e36de116fed37d10407bfb.setContent(html_9d8ca023a82f24bf2e6b6bd2776174c7);
+            
+        
+
+        marker_5e4bcaa00f333566ea3e4c995810e182.bindPopup(popup_adccaa4835e36de116fed37d10407bfb)
+        ;
+
+        
+    
+    
+                marker_5e4bcaa00f333566ea3e4c995810e182.setIcon(icon_cd59c9a5a456ec749034358c9e4a7f2c);
+            
+    
+            var marker_1bf47aaa09fae8c1e517b22ae9f120b4 = L.marker(
+                [-24.32390273491639, -50.61704577234749],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_82dd1155eed744cbf81303339b81c88e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9c69b2405d6481c15e3896424e08a8a3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca2144da52570265192a34eb53a5c078 = $(`<div id="html_ca2144da52570265192a34eb53a5c078" style="width: 100.0%; height: 100.0%;">             <b>Picoli Auto Center</b><br>             Endereço: Av. Nações Unidas, 50 (Esquina anexo ao viaduto), Centro, Telêmaco Borba/PR, CEP 84265-410<br>             Cidade: Telemaco Borba<br>             Contato: (42) 3273-3876, WhatsApp (42) 99102-3582<br></div>`)[0];
+                popup_9c69b2405d6481c15e3896424e08a8a3.setContent(html_ca2144da52570265192a34eb53a5c078);
+            
+        
+
+        marker_1bf47aaa09fae8c1e517b22ae9f120b4.bindPopup(popup_9c69b2405d6481c15e3896424e08a8a3)
+        ;
+
+        
+    
+    
+                marker_1bf47aaa09fae8c1e517b22ae9f120b4.setIcon(icon_82dd1155eed744cbf81303339b81c88e);
+            
+    
+            var marker_177dcbe714c279339fdc93aa332df245 = L.marker(
+                [-24.324081118957384, -50.61892449390651],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_6ea93319cb02754e52092e0b94bbeb9f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_34c1b4bc7dbf6048ca684c4b0de20aeb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_82e4ed09132b78c16932d0e215527bd3 = $(`<div id="html_82e4ed09132b78c16932d0e215527bd3" style="width: 100.0%; height: 100.0%;">             <b>Center Car Multimarcas</b><br>             Endereço: Av. Chanceler Horácio Laffer, 1088, Telêmaco Borba/PR, CEP 84261-350<br>             Cidade: Telemaco Borba<br>             Contato: (42) 3273-5680<br></div>`)[0];
+                popup_34c1b4bc7dbf6048ca684c4b0de20aeb.setContent(html_82e4ed09132b78c16932d0e215527bd3);
+            
+        
+
+        marker_177dcbe714c279339fdc93aa332df245.bindPopup(popup_34c1b4bc7dbf6048ca684c4b0de20aeb)
+        ;
+
+        
+    
+    
+                marker_177dcbe714c279339fdc93aa332df245.setIcon(icon_6ea93319cb02754e52092e0b94bbeb9f);
+            
+    
+            var marker_2bf2e271de568d74af665d39342c6105 = L.marker(
+                [-24.32546650436665, -50.61599949649417],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_a4efaeb0152522ffa4660fd0e4033046 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_870f8cda50cc92450dca4c32f2cb1e4c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9d6dca7bfd353c8937ca52aafb0e32ce = $(`<div id="html_9d6dca7bfd353c8937ca52aafb0e32ce" style="width: 100.0%; height: 100.0%;">             <b>Targa Auto Center</b><br>             Endereço: R. Vice Pref. Reginaldo Nocera, 702, Centro, Telêmaco Borba/PR, CEP 84261-020<br>             Cidade: Telemaco Borba<br>             Contato: (42) 3272-4000 (WhatsApp)<br></div>`)[0];
+                popup_870f8cda50cc92450dca4c32f2cb1e4c.setContent(html_9d6dca7bfd353c8937ca52aafb0e32ce);
+            
+        
+
+        marker_2bf2e271de568d74af665d39342c6105.bindPopup(popup_870f8cda50cc92450dca4c32f2cb1e4c)
+        ;
+
+        
+    
+    
+                marker_2bf2e271de568d74af665d39342c6105.setIcon(icon_a4efaeb0152522ffa4660fd0e4033046);
+            
+    
+            var marker_798c7fcaec458cd16432675eccb20915 = L.marker(
+                [-24.32219687179983, -50.61856539234727],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_b31ef09f69114bb432a78c89fae0bd4a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bde7bb09c2ac0119805b324f5dc73dd4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_29bebe2acde2216d03f66cc9843d1af3 = $(`<div id="html_29bebe2acde2216d03f66cc9843d1af3" style="width: 100.0%; height: 100.0%;">             <b>PKS Auto Center</b><br>             Endereço: Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_bde7bb09c2ac0119805b324f5dc73dd4.setContent(html_29bebe2acde2216d03f66cc9843d1af3);
+            
+        
+
+        marker_798c7fcaec458cd16432675eccb20915.bindPopup(popup_bde7bb09c2ac0119805b324f5dc73dd4)
+        ;
+
+        
+    
+    
+                marker_798c7fcaec458cd16432675eccb20915.setIcon(icon_b31ef09f69114bb432a78c89fae0bd4a);
+            
+    
+            var marker_5633a2b80c048d501a727984022a9caa = L.marker(
+                [-24.323283954744213, -50.61818997337607],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_0f7bcf8606ea3bc914be00e06f8a02e3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c1f03b514b11b47cbd1ce58396985b1e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5c4570f62b5185c5333ae04314c824b5 = $(`<div id="html_5c4570f62b5185c5333ae04314c824b5" style="width: 100.0%; height: 100.0%;">             <b>Rodar Auto Center</b><br>             Endereço: Av. Ipê Roxo, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_c1f03b514b11b47cbd1ce58396985b1e.setContent(html_5c4570f62b5185c5333ae04314c824b5);
+            
+        
+
+        marker_5633a2b80c048d501a727984022a9caa.bindPopup(popup_c1f03b514b11b47cbd1ce58396985b1e)
+        ;
+
+        
+    
+    
+                marker_5633a2b80c048d501a727984022a9caa.setIcon(icon_0f7bcf8606ea3bc914be00e06f8a02e3);
+            
+    
+            var marker_7b7f91fa2d8eca8fb034a9cc71cd3dad = L.marker(
+                [-25.0947, -50.1619],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_0c5a27d6891903e0794d1951ab373b9f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8a611fdd36b0045a34d4dabe19a0b8a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32d667d9c4dca51b872cbf5c436560a4 = $(`<div id="html_32d667d9c4dca51b872cbf5c436560a4" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Athenas</b><br>             Endereço: Av. General Carlos Cavalcanti, 1255, Ponta Grossa/PR, CEP 84025-000<br>             Cidade: Ponta Grossa<br>             Contato: (42) 3223-0203<br></div>`)[0];
+                popup_8a611fdd36b0045a34d4dabe19a0b8a2.setContent(html_32d667d9c4dca51b872cbf5c436560a4);
+            
+        
+
+        marker_7b7f91fa2d8eca8fb034a9cc71cd3dad.bindPopup(popup_8a611fdd36b0045a34d4dabe19a0b8a2)
+        ;
+
+        
+    
+    
+                marker_7b7f91fa2d8eca8fb034a9cc71cd3dad.setIcon(icon_0c5a27d6891903e0794d1951ab373b9f);
+            
+    
+            var marker_2290b503b6c6c08078e129548dd07f5b = L.marker(
+                [-25.093712723744744, -50.16253555659028],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_9917c4ea8091cde9946e1474c2101e83 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_78528f9d481a4fec579f877c39a4ec0e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2145d995b9b460864e7f8c8c9d261769 = $(`<div id="html_2145d995b9b460864e7f8c8c9d261769" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Manosso</b><br>             Endereço: Av. Visconde de Taunay, 1277, Ponta Grossa/PR, CEP 84051-000<br>             Cidade: Ponta Grossa<br>             Contato: (42) 3222-8234<br></div>`)[0];
+                popup_78528f9d481a4fec579f877c39a4ec0e.setContent(html_2145d995b9b460864e7f8c8c9d261769);
+            
+        
+
+        marker_2290b503b6c6c08078e129548dd07f5b.bindPopup(popup_78528f9d481a4fec579f877c39a4ec0e)
+        ;
+
+        
+    
+    
+                marker_2290b503b6c6c08078e129548dd07f5b.setIcon(icon_9917c4ea8091cde9946e1474c2101e83);
+            
+    
+            var marker_b12d856bbd1f909c9362b2821e509998 = L.marker(
+                [-25.093757796944583, -50.16272589739292],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_4c356c6409280595547722ccd5ef5dc8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_95e8fdba5bcfe8f03afee6a882c92f40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_57cd1155b2e305e37542e95afbb3962c = $(`<div id="html_57cd1155b2e305e37542e95afbb3962c" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Lima</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_95e8fdba5bcfe8f03afee6a882c92f40.setContent(html_57cd1155b2e305e37542e95afbb3962c);
+            
+        
+
+        marker_b12d856bbd1f909c9362b2821e509998.bindPopup(popup_95e8fdba5bcfe8f03afee6a882c92f40)
+        ;
+
+        
+    
+    
+                marker_b12d856bbd1f909c9362b2821e509998.setIcon(icon_4c356c6409280595547722ccd5ef5dc8);
+            
+    
+            var marker_8d89c4b3fa1178c3b10652b83c990c41 = L.marker(
+                [-25.09451516287252, -50.16030339398615],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_0b9aa96e10e9d83054588dc5e0e403db = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_196808eeab125b9016f7fd1b4c20a95b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b735e8287d623f116e56fd0f4c180302 = $(`<div id="html_b735e8287d623f116e56fd0f4c180302" style="width: 100.0%; height: 100.0%;">             <b>Camp Auto Center</b><br>             Endereço: Av. Ernesto Vilela, 669, Nova Rússia, Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_196808eeab125b9016f7fd1b4c20a95b.setContent(html_b735e8287d623f116e56fd0f4c180302);
+            
+        
+
+        marker_8d89c4b3fa1178c3b10652b83c990c41.bindPopup(popup_196808eeab125b9016f7fd1b4c20a95b)
+        ;
+
+        
+    
+    
+                marker_8d89c4b3fa1178c3b10652b83c990c41.setIcon(icon_0b9aa96e10e9d83054588dc5e0e403db);
+            
+    
+            var marker_8f5c00b2f7cb8403c67811f9b819ade7 = L.marker(
+                [-25.093138775068233, -50.16290662850896],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_5d1a268665ce4358b0cd7d3bc8785cc6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bccab6efa86867625dba7cf46e7d7469 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fb2a8f84b8fe32b8b997b215b7656ec9 = $(`<div id="html_fb2a8f84b8fe32b8b997b215b7656ec9" style="width: 100.0%; height: 100.0%;">             <b>Muniz Auto Center</b><br>             Endereço: Dom Pedro II, 913, Ponta Grossa/PR, CEP 84053-000<br>             Cidade: Ponta Grossa<br>             Contato: 0800 808 0777<br></div>`)[0];
+                popup_bccab6efa86867625dba7cf46e7d7469.setContent(html_fb2a8f84b8fe32b8b997b215b7656ec9);
+            
+        
+
+        marker_8f5c00b2f7cb8403c67811f9b819ade7.bindPopup(popup_bccab6efa86867625dba7cf46e7d7469)
+        ;
+
+        
+    
+    
+                marker_8f5c00b2f7cb8403c67811f9b819ade7.setIcon(icon_5d1a268665ce4358b0cd7d3bc8785cc6);
+            
+    
+            var marker_d1016b154d3b6c449f9141edda69364b = L.marker(
+                [-25.09240614336726, -50.16275571684085],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_e9363b17d6a4fe36c757f8cbecdea074 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dfb3c9e791c343f462ebbee0df6d4b41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0594e6b4591594d7c057d5449cb8b43a = $(`<div id="html_0594e6b4591594d7c057d5449cb8b43a" style="width: 100.0%; height: 100.0%;">             <b>Tatuzinho's Auto Center</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_dfb3c9e791c343f462ebbee0df6d4b41.setContent(html_0594e6b4591594d7c057d5449cb8b43a);
+            
+        
+
+        marker_d1016b154d3b6c449f9141edda69364b.bindPopup(popup_dfb3c9e791c343f462ebbee0df6d4b41)
+        ;
+
+        
+    
+    
+                marker_d1016b154d3b6c449f9141edda69364b.setIcon(icon_e9363b17d6a4fe36c757f8cbecdea074);
+            
+    
+            var marker_cdcca8fe22babc0af2cced40f5f4363b = L.marker(
+                [-25.09159382684659, -50.15958813013758],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_d4accc8304da0a48c02a59029ad5f1d1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_839ecab61d42a5f7c01255f000c4e04a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_152c81b0cebfa779d66e129c029ecab3 = $(`<div id="html_152c81b0cebfa779d66e129c029ecab3" style="width: 100.0%; height: 100.0%;">             <b>Auto Center SPT</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_839ecab61d42a5f7c01255f000c4e04a.setContent(html_152c81b0cebfa779d66e129c029ecab3);
+            
+        
+
+        marker_cdcca8fe22babc0af2cced40f5f4363b.bindPopup(popup_839ecab61d42a5f7c01255f000c4e04a)
+        ;
+
+        
+    
+    
+                marker_cdcca8fe22babc0af2cced40f5f4363b.setIcon(icon_d4accc8304da0a48c02a59029ad5f1d1);
+            
+    
+            var marker_861f8484ad287411e370e284e2d83855 = L.marker(
+                [-25.097325807214137, -50.15906546256076],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_927d766ae912cfa68de9e8a56a8f6ca9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b4efb17b020e3e57a573055ba4e95ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79898ff771bca4335b2d5f4f31a13a5f = $(`<div id="html_79898ff771bca4335b2d5f4f31a13a5f" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Souza</b><br>             Endereço: Centro, Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_1b4efb17b020e3e57a573055ba4e95ae.setContent(html_79898ff771bca4335b2d5f4f31a13a5f);
+            
+        
+
+        marker_861f8484ad287411e370e284e2d83855.bindPopup(popup_1b4efb17b020e3e57a573055ba4e95ae)
+        ;
+
+        
+    
+    
+                marker_861f8484ad287411e370e284e2d83855.setIcon(icon_927d766ae912cfa68de9e8a56a8f6ca9);
+            
+    
+            var marker_502b5c4e6735612873b1d067a8ab86f0 = L.marker(
+                [-24.5153, -50.4176],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_7278d67f15205b195d4db79d6aad2dc7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2d61ab38e86a778ecfacae71970f1f20 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4b099bc26be937360bcd8e658514d85d = $(`<div id="html_4b099bc26be937360bcd8e658514d85d" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Lopes Sound</b><br>             Endereço: Av. Manoel das Dores, 1805, Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_2d61ab38e86a778ecfacae71970f1f20.setContent(html_4b099bc26be937360bcd8e658514d85d);
+            
+        
+
+        marker_502b5c4e6735612873b1d067a8ab86f0.bindPopup(popup_2d61ab38e86a778ecfacae71970f1f20)
+        ;
+
+        
+    
+    
+                marker_502b5c4e6735612873b1d067a8ab86f0.setIcon(icon_7278d67f15205b195d4db79d6aad2dc7);
+            
+    
+            var marker_31aa8ace906d94ea7e12136073043c60 = L.marker(
+                [-24.514422045835513, -50.41697000522478],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_80dece453fe5d7cdc18a0b545c17429d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0234c97f5d7cd1ac4fd2ea071f3786da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9d6272f302750b46eeadac4074abcd5f = $(`<div id="html_9d6272f302750b46eeadac4074abcd5f" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Siqueira</b><br>             Endereço: Rua, 1079, Conj. Nequinho, Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: (42) 8810-5080<br></div>`)[0];
+                popup_0234c97f5d7cd1ac4fd2ea071f3786da.setContent(html_9d6272f302750b46eeadac4074abcd5f);
+            
+        
+
+        marker_31aa8ace906d94ea7e12136073043c60.bindPopup(popup_0234c97f5d7cd1ac4fd2ea071f3786da)
+        ;
+
+        
+    
+    
+                marker_31aa8ace906d94ea7e12136073043c60.setIcon(icon_80dece453fe5d7cdc18a0b545c17429d);
+            
+    
+            var marker_57036d512049edc72d3e0c45a4e9b324 = L.marker(
+                [-24.515395562764983, -50.41707306967541],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_3b353ea14ae811b83efd8c670126680f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_38dc93c76e1e90f7d359685c4a6899c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6eede2de049e73138d71ae8f3a42d76 = $(`<div id="html_d6eede2de049e73138d71ae8f3a42d76" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Geraldinho</b><br>             Endereço: Estrada Coronel Alexandre Soares Valente, 1162, Parque Industrial, Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_38dc93c76e1e90f7d359685c4a6899c9.setContent(html_d6eede2de049e73138d71ae8f3a42d76);
+            
+        
+
+        marker_57036d512049edc72d3e0c45a4e9b324.bindPopup(popup_38dc93c76e1e90f7d359685c4a6899c9)
+        ;
+
+        
+    
+    
+                marker_57036d512049edc72d3e0c45a4e9b324.setIcon(icon_3b353ea14ae811b83efd8c670126680f);
+            
+    
+            var marker_529c78f47697949fb2cb8fccf2fbe32c = L.marker(
+                [-24.51427501305689, -50.41812076426025],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_64ee8554e07987dff645db6de95e7e83 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9cfc33a9962d054c56a06651c2763313 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f588da192ba70da17f9cdac74dce2c9 = $(`<div id="html_2f588da192ba70da17f9cdac74dce2c9" style="width: 100.0%; height: 100.0%;">             <b>JP Oficina Mecânica</b><br>             Endereço: Av. Manoel Dores, 2521, Tibagi/PR, CEP 84300-000<br>             Cidade: Tibagi<br>             Contato: (42) 3275-1016<br></div>`)[0];
+                popup_9cfc33a9962d054c56a06651c2763313.setContent(html_2f588da192ba70da17f9cdac74dce2c9);
+            
+        
+
+        marker_529c78f47697949fb2cb8fccf2fbe32c.bindPopup(popup_9cfc33a9962d054c56a06651c2763313)
+        ;
+
+        
+    
+    
+                marker_529c78f47697949fb2cb8fccf2fbe32c.setIcon(icon_64ee8554e07987dff645db6de95e7e83);
+            
+    
+            var marker_1c1578723875ef4dbb5973ca0279f172 = L.marker(
+                [-24.2058, -50.9185],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_f13af1aba9c13fcf1550adf3363f872c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0dfb1761e01903e009d8c8b877f7eeb8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d6bd67f03facd65ace800ff44825202 = $(`<div id="html_3d6bd67f03facd65ace800ff44825202" style="width: 100.0%; height: 100.0%;">             <b>Shelby Racing - Auto Center</b><br>             Endereço: Avenida Paulo Siqueira, 1647, Jardim Claudia, Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_0dfb1761e01903e009d8c8b877f7eeb8.setContent(html_3d6bd67f03facd65ace800ff44825202);
+            
+        
+
+        marker_1c1578723875ef4dbb5973ca0279f172.bindPopup(popup_0dfb1761e01903e009d8c8b877f7eeb8)
+        ;
+
+        
+    
+    
+                marker_1c1578723875ef4dbb5973ca0279f172.setIcon(icon_f13af1aba9c13fcf1550adf3363f872c);
+            
+    
+            var marker_6192e85932423f201dc1ddddf6d9e318 = L.marker(
+                [-24.205520904741782, -50.91787922627416],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_b31d9b7c6eadb5615bd7ea97866918e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d76e58bee72dcfeb36b80f2ef26572be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_27a8fce036182e439375f5ae1e386985 = $(`<div id="html_27a8fce036182e439375f5ae1e386985" style="width: 100.0%; height: 100.0%;">             <b>DR Auto Center Lava Car</b><br>             Endereço: Av. Paraná, 1174, Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_d76e58bee72dcfeb36b80f2ef26572be.setContent(html_27a8fce036182e439375f5ae1e386985);
+            
+        
+
+        marker_6192e85932423f201dc1ddddf6d9e318.bindPopup(popup_d76e58bee72dcfeb36b80f2ef26572be)
+        ;
+
+        
+    
+    
+                marker_6192e85932423f201dc1ddddf6d9e318.setIcon(icon_b31d9b7c6eadb5615bd7ea97866918e8);
+            
+    
+            var marker_0a9168c4ff37b2dd85621f737f2268d2 = L.marker(
+                [-24.206913619838954, -50.91904224567412],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_1778dacc325206f0d72749b2a6f14894 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_310997577b60fff4b8cb81b8990f3c79 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_982527479c6a15e90d15a1836c955477 = $(`<div id="html_982527479c6a15e90d15a1836c955477" style="width: 100.0%; height: 100.0%;">             <b>Felipe Auto Center</b><br>             Endereço: Rua Leônidas Alves Carneiro, 1206, Centro, Ortigueira/PR, CEP 84350-000<br>             Cidade: Ortigueira<br>             Contato: (42) 98884-4144, felipeautocenter@gmail.com<br></div>`)[0];
+                popup_310997577b60fff4b8cb81b8990f3c79.setContent(html_982527479c6a15e90d15a1836c955477);
+            
+        
+
+        marker_0a9168c4ff37b2dd85621f737f2268d2.bindPopup(popup_310997577b60fff4b8cb81b8990f3c79)
+        ;
+
+        
+    
+    
+                marker_0a9168c4ff37b2dd85621f737f2268d2.setIcon(icon_1778dacc325206f0d72749b2a6f14894);
+            
+    
+            var marker_cf6a76ee47efae0b5e7829ce0f4627a6 = L.marker(
+                [-24.205713913410854, -50.91858880951515],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_17b30da163837c5e12be101a69ce2ff3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ac6e1e2917377ae9c7a0a99f2b91d1c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9caff41001fb8589901e22d56b74a313 = $(`<div id="html_9caff41001fb8589901e22d56b74a313" style="width: 100.0%; height: 100.0%;">             <b>Deivid Car Auto Center</b><br>             Endereço: Avenida Paraná, 1109, Centro, Ortigueira/PR, CEP 84350-000<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_2ac6e1e2917377ae9c7a0a99f2b91d1c.setContent(html_9caff41001fb8589901e22d56b74a313);
+            
+        
+
+        marker_cf6a76ee47efae0b5e7829ce0f4627a6.bindPopup(popup_2ac6e1e2917377ae9c7a0a99f2b91d1c)
+        ;
+
+        
+    
+    
+                marker_cf6a76ee47efae0b5e7829ce0f4627a6.setIcon(icon_17b30da163837c5e12be101a69ce2ff3);
+            
+    
+            var marker_b086ea19f0160bbfa03e4b08fa2f408f = L.marker(
+                [-24.6492, -50.8466],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_a27119cfda5873d32453c2085584427f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_59778a88cdcf6f8aec5793f1d05c0ebd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc1d284b88419d1746f6a164934416c8 = $(`<div id="html_fc1d284b88419d1746f6a164934416c8" style="width: 100.0%; height: 100.0%;">             <b>LB Auto Center</b><br>             Endereço: Rua Marcílio Dias, 546, Barracão A, Centro, Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_59778a88cdcf6f8aec5793f1d05c0ebd.setContent(html_fc1d284b88419d1746f6a164934416c8);
+            
+        
+
+        marker_b086ea19f0160bbfa03e4b08fa2f408f.bindPopup(popup_59778a88cdcf6f8aec5793f1d05c0ebd)
+        ;
+
+        
+    
+    
+                marker_b086ea19f0160bbfa03e4b08fa2f408f.setIcon(icon_a27119cfda5873d32453c2085584427f);
+            
+    
+            var marker_936a520c808ed5eadd3f9cfa2596b722 = L.marker(
+                [-24.650114021812477, -50.84595333617795],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_b226992bcbda72f8fbaa790d15417e09 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5d7cfcae01bfd1516dde408ff45f6443 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d761e9171621b1bad3bfd5439bb0e7c = $(`<div id="html_3d761e9171621b1bad3bfd5439bb0e7c" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Ueque</b><br>             Endereço: R. Dom Pedro II, 576, Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: (42) 3276-2821<br></div>`)[0];
+                popup_5d7cfcae01bfd1516dde408ff45f6443.setContent(html_3d761e9171621b1bad3bfd5439bb0e7c);
+            
+        
+
+        marker_936a520c808ed5eadd3f9cfa2596b722.bindPopup(popup_5d7cfcae01bfd1516dde408ff45f6443)
+        ;
+
+        
+    
+    
+                marker_936a520c808ed5eadd3f9cfa2596b722.setIcon(icon_b226992bcbda72f8fbaa790d15417e09);
+            
+    
+            var marker_f15ace4466ff3396e2e1ff57cf01367f = L.marker(
+                [-24.65051581492641, -50.84786849570726],
+                {
+}
+            ).addTo(map_fb8e7882468f905b6dfe53d2669033a9);
+        
+    
+            var icon_1fcd7827a2ba09b6fb4bf074b30ba4a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b59f68a1b1a284e1926b49206bca6ea3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77494b5668db0e013c681143f3304021 = $(`<div id="html_77494b5668db0e013c681143f3304021" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Bilenki</b><br>             Endereço: Rua Ari Borba Carneiro, 98, Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_b59f68a1b1a284e1926b49206bca6ea3.setContent(html_77494b5668db0e013c681143f3304021);
+            
+        
+
+        marker_f15ace4466ff3396e2e1ff57cf01367f.bindPopup(popup_b59f68a1b1a284e1926b49206bca6ea3)
+        ;
+
+        
+    
+    
+                marker_f15ace4466ff3396e2e1ff57cf01367f.setIcon(icon_1fcd7827a2ba09b6fb4bf074b30ba4a3);
+            
+</script>
+</html>

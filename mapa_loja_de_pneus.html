@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d8be35b94d0560a10e2b37beb759cb87 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                top: 10px; left: 50px; width: 800px; height: 60px; 
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:16px; padding: 8px;
+                border-radius: 5px;">
+        <h3 style="margin-top: 0; text-align: center;">Mapa de Loja de Pneuss no Raio de 120km de Telêmaco Borba</h3>
+        <div style="text-align: center;">Total: 26 estabelecimentos - CADA PONTO É UM ESTABELECIMENTO INDIVIDUAL</div>
+    </div>
+    
+    
+    <div style="position: fixed; 
+                bottom: 10px; right: 10px; width: 300px;
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:12px; padding: 8px;
+                border-radius: 5px;">
+        <b>Instruções:</b><br>
+        • Cada ponto representa um estabelecimento individual<br>
+        • Clique em qualquer marcador para ver detalhes<br>
+        • Use a roda do mouse para zoom<br>
+        • Clique e arraste para mover o mapa
+    </div>
+    
+    
+            <div class="folium-map" id="map_d8be35b94d0560a10e2b37beb759cb87" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d8be35b94d0560a10e2b37beb759cb87 = L.map(
+                "map_d8be35b94d0560a10e2b37beb759cb87",
+                {
+                    center: [-24.3245, -50.6176],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_311446764ad97f7e52e585bd66ac54bd = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_311446764ad97f7e52e585bd66ac54bd.addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var marker_13680132752e8400c4561cbbf80f7d82 = L.marker(
+                [-24.3245, -50.6176],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_03c0f1a95f349b8510d89f28114ae131 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7973b2b609c395ef86abc4413e7c7048 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1586cec9f0a9d564a78d41c1d75aac82 = $(`<div id="html_1586cec9f0a9d564a78d41c1d75aac82" style="width: 100.0%; height: 100.0%;">Telêmaco Borba - Centro do Raio de 120km</div>`)[0];
+                popup_7973b2b609c395ef86abc4413e7c7048.setContent(html_1586cec9f0a9d564a78d41c1d75aac82);
+            
+        
+
+        marker_13680132752e8400c4561cbbf80f7d82.bindPopup(popup_7973b2b609c395ef86abc4413e7c7048)
+        ;
+
+        
+    
+    
+                marker_13680132752e8400c4561cbbf80f7d82.setIcon(icon_03c0f1a95f349b8510d89f28114ae131);
+            
+    
+            var circle_2543c2df2802d77375b8e4cefe4f42e8 = L.circle(
+                [-24.3245, -50.6176],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 120000, "stroke": true, "weight": 3}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var marker_7daa91006c7b2293ba74890c3b866e85 = L.marker(
+                [-24.3245, -50.6176],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_3f46379e4c016d678e1fe7cb5fdf934c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_636f144226e7a984de91d20fe26e9a95 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_073cda98b79de228cdf576cbe6378560 = $(`<div id="html_073cda98b79de228cdf576cbe6378560" style="width: 100.0%; height: 100.0%;">             <b>Muniz Auto Center</b><br>             Endereço: Rua Quinze de Novembro, 548, Centro, Telêmaco Borba/PR, CEP 84265-400<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_636f144226e7a984de91d20fe26e9a95.setContent(html_073cda98b79de228cdf576cbe6378560);
+            
+        
+
+        marker_7daa91006c7b2293ba74890c3b866e85.bindPopup(popup_636f144226e7a984de91d20fe26e9a95)
+        ;
+
+        
+    
+    
+                marker_7daa91006c7b2293ba74890c3b866e85.setIcon(icon_3f46379e4c016d678e1fe7cb5fdf934c);
+            
+    
+            var marker_2768fdaea1d5f4a987dc412cbe0eb3a9 = L.marker(
+                [-24.325005880388506, -50.618259741722625],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_45f7553c8303e2e61f3474e7e9834fe1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_df675c1963804a978329af8c479d0dac = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_87f16249bda426b471f0b25528177166 = $(`<div id="html_87f16249bda426b471f0b25528177166" style="width: 100.0%; height: 100.0%;">             <b>Pneucam</b><br>             Endereço: Rodovia PR-160 Km 23, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: (42) 3273-1018<br></div>`)[0];
+                popup_df675c1963804a978329af8c479d0dac.setContent(html_87f16249bda426b471f0b25528177166);
+            
+        
+
+        marker_2768fdaea1d5f4a987dc412cbe0eb3a9.bindPopup(popup_df675c1963804a978329af8c479d0dac)
+        ;
+
+        
+    
+    
+                marker_2768fdaea1d5f4a987dc412cbe0eb3a9.setIcon(icon_45f7553c8303e2e61f3474e7e9834fe1);
+            
+    
+            var marker_5511d3ed590e4a64e2494804d04962a1 = L.marker(
+                [-24.32481147814024, -50.61736443200134],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_4dcfcc905b44a4b51aa888ccc0116936 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c08ef4e857e0b4d71d8b19815256f56d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d0d06fcb7682f70214cfa721976f5a6 = $(`<div id="html_6d0d06fcb7682f70214cfa721976f5a6" style="width: 100.0%; height: 100.0%;">             <b>Centro Automotivo Pirelli</b><br>             Endereço: Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_c08ef4e857e0b4d71d8b19815256f56d.setContent(html_6d0d06fcb7682f70214cfa721976f5a6);
+            
+        
+
+        marker_5511d3ed590e4a64e2494804d04962a1.bindPopup(popup_c08ef4e857e0b4d71d8b19815256f56d)
+        ;
+
+        
+    
+    
+                marker_5511d3ed590e4a64e2494804d04962a1.setIcon(icon_4dcfcc905b44a4b51aa888ccc0116936);
+            
+    
+            var marker_bc2b0e6d3c22ca8079935496776a886c = L.marker(
+                [-24.32596508169622, -50.6184249794449],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_e8a2c62eff6ea36a9da2337fd7b403b1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9351fae400b819f8610522127f15f2a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bedebbe80c5e5789b46709e574b806ce = $(`<div id="html_bedebbe80c5e5789b46709e574b806ce" style="width: 100.0%; height: 100.0%;">             <b>Cido Pneus</b><br>             Endereço: Avenida Nações Unidas, 150, Centro, Telêmaco Borba/PR, CEP 84265-410<br>             Cidade: Telemaco Borba<br>             Contato: (42) 3272-5727, (42) 99946-7930, scpcoraiola@hotmail.com<br></div>`)[0];
+                popup_9351fae400b819f8610522127f15f2a2.setContent(html_bedebbe80c5e5789b46709e574b806ce);
+            
+        
+
+        marker_bc2b0e6d3c22ca8079935496776a886c.bindPopup(popup_9351fae400b819f8610522127f15f2a2)
+        ;
+
+        
+    
+    
+                marker_bc2b0e6d3c22ca8079935496776a886c.setIcon(icon_e8a2c62eff6ea36a9da2337fd7b403b1);
+            
+    
+            var marker_126f8e9520a188e31fa85a454388d98a = L.marker(
+                [-24.326294104046834, -50.619811744694665],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_bcaaf5538a3ad010da379d22929209a5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c17dac39c94c0498f5b193a820dceaab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_36370df1c67d89393361773f8bd3f4fa = $(`<div id="html_36370df1c67d89393361773f8bd3f4fa" style="width: 100.0%; height: 100.0%;">             <b>Hilgemberg Pneus</b><br>             Endereço: Avenida Nações Unidas, 136, Centro, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: WhatsApp (42) 98868-4760 (Denilson)<br></div>`)[0];
+                popup_c17dac39c94c0498f5b193a820dceaab.setContent(html_36370df1c67d89393361773f8bd3f4fa);
+            
+        
+
+        marker_126f8e9520a188e31fa85a454388d98a.bindPopup(popup_c17dac39c94c0498f5b193a820dceaab)
+        ;
+
+        
+    
+    
+                marker_126f8e9520a188e31fa85a454388d98a.setIcon(icon_bcaaf5538a3ad010da379d22929209a5);
+            
+    
+            var marker_aeb3b56d84171bf0e25b9e571cc96c25 = L.marker(
+                [-24.322553558280642, -50.61955944846516],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_6871d70fcdfc9ee60d7dc3ffb1230f23 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7b601cb9b513744ecfb73e976651b1c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_537df824b748d014758197bbe8004934 = $(`<div id="html_537df824b748d014758197bbe8004934" style="width: 100.0%; height: 100.0%;">             <b>DPaschoal</b><br>             Endereço: Rodovia PR 160, km 23, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_e7b601cb9b513744ecfb73e976651b1c.setContent(html_537df824b748d014758197bbe8004934);
+            
+        
+
+        marker_aeb3b56d84171bf0e25b9e571cc96c25.bindPopup(popup_e7b601cb9b513744ecfb73e976651b1c)
+        ;
+
+        
+    
+    
+                marker_aeb3b56d84171bf0e25b9e571cc96c25.setIcon(icon_6871d70fcdfc9ee60d7dc3ffb1230f23);
+            
+    
+            var marker_8264f8fe8152acd95eec6e6387c83648 = L.marker(
+                [-25.0947, -50.1619],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_a1a46f3560fb7a6036293560a38d28f5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b426c53106d8044d319a99daddc019d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_192330cec02e79213456ad6f263258b3 = $(`<div id="html_192330cec02e79213456ad6f263258b3" style="width: 100.0%; height: 100.0%;">             <b>Impacto Prime</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_b426c53106d8044d319a99daddc019d2.setContent(html_192330cec02e79213456ad6f263258b3);
+            
+        
+
+        marker_8264f8fe8152acd95eec6e6387c83648.bindPopup(popup_b426c53106d8044d319a99daddc019d2)
+        ;
+
+        
+    
+    
+                marker_8264f8fe8152acd95eec6e6387c83648.setIcon(icon_a1a46f3560fb7a6036293560a38d28f5);
+            
+    
+            var marker_f592071c8b2b09c222e2684768ca67b4 = L.marker(
+                [-25.094323540210777, -50.16164976033346],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_f1b346efe9d738953f3ff0d8737bddcb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8a1dfeaaf37d8d5c808125840677c969 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_75375c61664ef9874d1fdecba3125dbb = $(`<div id="html_75375c61664ef9874d1fdecba3125dbb" style="width: 100.0%; height: 100.0%;">             <b>Muniz Auto Center</b><br>             Endereço: Dom Pedro II, 913, Ponta Grossa/PR, CEP 84053-000<br>             Cidade: Ponta Grossa<br>             Contato: 0800 808 0777<br></div>`)[0];
+                popup_8a1dfeaaf37d8d5c808125840677c969.setContent(html_75375c61664ef9874d1fdecba3125dbb);
+            
+        
+
+        marker_f592071c8b2b09c222e2684768ca67b4.bindPopup(popup_8a1dfeaaf37d8d5c808125840677c969)
+        ;
+
+        
+    
+    
+                marker_f592071c8b2b09c222e2684768ca67b4.setIcon(icon_f1b346efe9d738953f3ff0d8737bddcb);
+            
+    
+            var marker_62121fdc36c9bb8257b0851660f05691 = L.marker(
+                [-25.093945553652606, -50.16228405472003],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_5908bd8590a86f1b582352fd09a88dad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a2328129bcd9de4fcc378518e9ea1556 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_992b51f29f53c237e9a8003ab15e318e = $(`<div id="html_992b51f29f53c237e9a8003ab15e318e" style="width: 100.0%; height: 100.0%;">             <b>Prisma Pneus</b><br>             Endereço: Rua Dom Pedro II, 383, Nova Rússia, Ponta Grossa/PR, CEP 84053-000<br>             Cidade: Ponta Grossa<br>             Contato: (42) 3028-2900<br></div>`)[0];
+                popup_a2328129bcd9de4fcc378518e9ea1556.setContent(html_992b51f29f53c237e9a8003ab15e318e);
+            
+        
+
+        marker_62121fdc36c9bb8257b0851660f05691.bindPopup(popup_a2328129bcd9de4fcc378518e9ea1556)
+        ;
+
+        
+    
+    
+                marker_62121fdc36c9bb8257b0851660f05691.setIcon(icon_5908bd8590a86f1b582352fd09a88dad);
+            
+    
+            var marker_e0c18c2d0d1193cd2858f65dfb6dd6f8 = L.marker(
+                [-25.096241211677743, -50.16104649626529],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_595936cb05870340c744ca8bf6ceffd1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_831a14cd57b374151e4b2ea202e3649b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e0ee12621428557ab2e1af01fc0a7cd9 = $(`<div id="html_e0ee12621428557ab2e1af01fc0a7cd9" style="width: 100.0%; height: 100.0%;">             <b>Taquarense Pneus e Rodas</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_831a14cd57b374151e4b2ea202e3649b.setContent(html_e0ee12621428557ab2e1af01fc0a7cd9);
+            
+        
+
+        marker_e0c18c2d0d1193cd2858f65dfb6dd6f8.bindPopup(popup_831a14cd57b374151e4b2ea202e3649b)
+        ;
+
+        
+    
+    
+                marker_e0c18c2d0d1193cd2858f65dfb6dd6f8.setIcon(icon_595936cb05870340c744ca8bf6ceffd1);
+            
+    
+            var marker_240d85e74d6f2840a032b82ce235d87e = L.marker(
+                [-25.09242864215095, -50.16106897872651],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_b284bc8d05b7bfd29e412fc63721f4dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cdaf3b5c4a7fb75611fc002b6f2df474 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bd8c58de729ffba61ba17e25c97a5af4 = $(`<div id="html_bd8c58de729ffba61ba17e25c97a5af4" style="width: 100.0%; height: 100.0%;">             <b>Pneumax (Revenda Michelin)</b><br>             Endereço: Rua Ernesto Vilela, 1522, Nova Rússia, Ponta Grossa/PR, CEP 84070-000<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_cdaf3b5c4a7fb75611fc002b6f2df474.setContent(html_bd8c58de729ffba61ba17e25c97a5af4);
+            
+        
+
+        marker_240d85e74d6f2840a032b82ce235d87e.bindPopup(popup_cdaf3b5c4a7fb75611fc002b6f2df474)
+        ;
+
+        
+    
+    
+                marker_240d85e74d6f2840a032b82ce235d87e.setIcon(icon_b284bc8d05b7bfd29e412fc63721f4dd);
+            
+    
+            var marker_cb7a13f6b42d51f05f9b3a68f0c08133 = L.marker(
+                [-25.09711409676276, -50.159848912983314],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_64b8beac15460aebf60b47218e1c3297 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dda134a3c6a666d0ee3fbf39c7a749ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b9ac7e1bbcdcd9f7e87370e77ae6d88 = $(`<div id="html_2b9ac7e1bbcdcd9f7e87370e77ae6d88" style="width: 100.0%; height: 100.0%;">             <b>Firestone</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_dda134a3c6a666d0ee3fbf39c7a749ba.setContent(html_2b9ac7e1bbcdcd9f7e87370e77ae6d88);
+            
+        
+
+        marker_cb7a13f6b42d51f05f9b3a68f0c08133.bindPopup(popup_dda134a3c6a666d0ee3fbf39c7a749ba)
+        ;
+
+        
+    
+    
+                marker_cb7a13f6b42d51f05f9b3a68f0c08133.setIcon(icon_64b8beac15460aebf60b47218e1c3297);
+            
+    
+            var marker_86eab599cdee56e4e29fc8b7275c71d9 = L.marker(
+                [-25.0948738807312, -50.163718562720724],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_f020a52d2095844f6f405a9c477092f1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cab8033f5f2f8776d58279568cd49447 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb94f060afb09d79ac84a07475ec1481 = $(`<div id="html_bb94f060afb09d79ac84a07475ec1481" style="width: 100.0%; height: 100.0%;">             <b>Campneus Pirelli</b><br>             Endereço: Avenida Ernesto Vilela, 1792, Nova Rússia, Ponta Grossa/PR, CEP 84070-000<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_cab8033f5f2f8776d58279568cd49447.setContent(html_bb94f060afb09d79ac84a07475ec1481);
+            
+        
+
+        marker_86eab599cdee56e4e29fc8b7275c71d9.bindPopup(popup_cab8033f5f2f8776d58279568cd49447)
+        ;
+
+        
+    
+    
+                marker_86eab599cdee56e4e29fc8b7275c71d9.setIcon(icon_f020a52d2095844f6f405a9c477092f1);
+            
+    
+            var marker_bcf777c8c63956d96fcf6ba9ed99092a = L.marker(
+                [-25.09372417075165, -50.161660993069084],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_3c700e141dc3a6f7169ab96fb89aa61b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fbc7f31dcd98a699b9b1957782bb6c63 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d7031b85d109fba2ef50d228af9aeb26 = $(`<div id="html_d7031b85d109fba2ef50d228af9aeb26" style="width: 100.0%; height: 100.0%;">             <b>G2 Rodas e Pneus</b><br>             Endereço: Rua Barão do Cerro Azul, 1134, Centro, Ponta Grossa/PR, CEP 84010-210<br>             Cidade: Ponta Grossa<br>             Contato: (42) 3028-9202<br></div>`)[0];
+                popup_fbc7f31dcd98a699b9b1957782bb6c63.setContent(html_d7031b85d109fba2ef50d228af9aeb26);
+            
+        
+
+        marker_bcf777c8c63956d96fcf6ba9ed99092a.bindPopup(popup_fbc7f31dcd98a699b9b1957782bb6c63)
+        ;
+
+        
+    
+    
+                marker_bcf777c8c63956d96fcf6ba9ed99092a.setIcon(icon_3c700e141dc3a6f7169ab96fb89aa61b);
+            
+    
+            var marker_51bb080ba2cea493322640d9eac95a9d = L.marker(
+                [-24.5153, -50.4176],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_d466bff60419cb7df00fb0f5094260af = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db29390e0c32a6438518db54590091de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4990f80897e8453b45bbe514b8cccc20 = $(`<div id="html_4990f80897e8453b45bbe514b8cccc20" style="width: 100.0%; height: 100.0%;">             <b>Mauri J S Correia</b><br>             Endereço: Avenida Manoel Das Dores, 2405, Centro, Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_db29390e0c32a6438518db54590091de.setContent(html_4990f80897e8453b45bbe514b8cccc20);
+            
+        
+
+        marker_51bb080ba2cea493322640d9eac95a9d.bindPopup(popup_db29390e0c32a6438518db54590091de)
+        ;
+
+        
+    
+    
+                marker_51bb080ba2cea493322640d9eac95a9d.setIcon(icon_d466bff60419cb7df00fb0f5094260af);
+            
+    
+            var marker_dfe6e4e01fe1bb9e05a41e1a054266ec = L.marker(
+                [-24.515483209996713, -50.41732316744346],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_32c99f2b783d16fb6b5c7b9d4739d192 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a0ec8f2b7517063176f7390625cb7ceb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22e1eaa64a9208fdc81228ab60831bfd = $(`<div id="html_22e1eaa64a9208fdc81228ab60831bfd" style="width: 100.0%; height: 100.0%;">             <b>Auto Center Lopes Sound</b><br>             Endereço: Av. Manoel das Dores, 1805, Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_a0ec8f2b7517063176f7390625cb7ceb.setContent(html_22e1eaa64a9208fdc81228ab60831bfd);
+            
+        
+
+        marker_dfe6e4e01fe1bb9e05a41e1a054266ec.bindPopup(popup_a0ec8f2b7517063176f7390625cb7ceb)
+        ;
+
+        
+    
+    
+                marker_dfe6e4e01fe1bb9e05a41e1a054266ec.setIcon(icon_32c99f2b783d16fb6b5c7b9d4739d192);
+            
+    
+            var marker_c8fd0e191efedc48f334a1a25e6d8d6f = L.marker(
+                [-24.51670330526108, -50.41638918101921],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_11359cd2430b72cc94d86c7eae04f802 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c534c2f10a1fb85be5a3ec24d092711f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_571021d5a1fc813ae3b16f822d2c38cd = $(`<div id="html_571021d5a1fc813ae3b16f822d2c38cd" style="width: 100.0%; height: 100.0%;">             <b>J. S. Pneus</b><br>             Endereço: R. Tenente Coronel Florentino, 1285 - Sala, Centro, Tibagi/PR, CEP 84300-000<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_c534c2f10a1fb85be5a3ec24d092711f.setContent(html_571021d5a1fc813ae3b16f822d2c38cd);
+            
+        
+
+        marker_c8fd0e191efedc48f334a1a25e6d8d6f.bindPopup(popup_c534c2f10a1fb85be5a3ec24d092711f)
+        ;
+
+        
+    
+    
+                marker_c8fd0e191efedc48f334a1a25e6d8d6f.setIcon(icon_11359cd2430b72cc94d86c7eae04f802);
+            
+    
+            var marker_8e00bd3405f7970ee0e7f9ef4c218bab = L.marker(
+                [-24.2058, -50.9185],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_0f9da646023bad063b60cd1d5ac7a9ce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7ef346b8e40e2a7569d5bdc32280ce19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_08c004df38fe006d3b03c3abd3f7a9b8 = $(`<div id="html_08c004df38fe006d3b03c3abd3f7a9b8" style="width: 100.0%; height: 100.0%;">             <b>AF Pneus</b><br>             Endereço: Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_7ef346b8e40e2a7569d5bdc32280ce19.setContent(html_08c004df38fe006d3b03c3abd3f7a9b8);
+            
+        
+
+        marker_8e00bd3405f7970ee0e7f9ef4c218bab.bindPopup(popup_7ef346b8e40e2a7569d5bdc32280ce19)
+        ;
+
+        
+    
+    
+                marker_8e00bd3405f7970ee0e7f9ef4c218bab.setIcon(icon_0f9da646023bad063b60cd1d5ac7a9ce);
+            
+    
+            var marker_08f8cc0aac2e638bfa46b8426ce3297c = L.marker(
+                [-24.205933634166563, -50.91758545160664],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_0d594392d50b9ead7843b6c28a0c3ad7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aaa356b1ddd49240d3573a263d727e3e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_108835d461408516688b639b99e18148 = $(`<div id="html_108835d461408516688b639b99e18148" style="width: 100.0%; height: 100.0%;">             <b>Solak Casa dos Pneus</b><br>             Endereço: Avenida Paraná, 727, Ortigueira/PR, CEP 84350-000<br>             Cidade: Ortigueira<br>             Contato: (42) 3277-1385<br></div>`)[0];
+                popup_aaa356b1ddd49240d3573a263d727e3e.setContent(html_108835d461408516688b639b99e18148);
+            
+        
+
+        marker_08f8cc0aac2e638bfa46b8426ce3297c.bindPopup(popup_aaa356b1ddd49240d3573a263d727e3e)
+        ;
+
+        
+    
+    
+                marker_08f8cc0aac2e638bfa46b8426ce3297c.setIcon(icon_0d594392d50b9ead7843b6c28a0c3ad7);
+            
+    
+            var marker_748dc9b30b8be0c00844228a2ad50344 = L.marker(
+                [-24.205709216564095, -50.917808424567255],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_f4612fd45f20193e170169e74ba209d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dd1e6765c9ca1b3b3b48a397adc8f35f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_574320e3278a985839fdcea4f4cadce4 = $(`<div id="html_574320e3278a985839fdcea4f4cadce4" style="width: 100.0%; height: 100.0%;">             <b>Treder Auto Center (Treder Pneus)</b><br>             Endereço: Avenida Paraná, 727, Centro, Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: WhatsApp (42) 98848-9669<br></div>`)[0];
+                popup_dd1e6765c9ca1b3b3b48a397adc8f35f.setContent(html_574320e3278a985839fdcea4f4cadce4);
+            
+        
+
+        marker_748dc9b30b8be0c00844228a2ad50344.bindPopup(popup_dd1e6765c9ca1b3b3b48a397adc8f35f)
+        ;
+
+        
+    
+    
+                marker_748dc9b30b8be0c00844228a2ad50344.setIcon(icon_f4612fd45f20193e170169e74ba209d8);
+            
+    
+            var marker_54e06958159b47199ab50451dc57fd81 = L.marker(
+                [-24.207743145815716, -50.919294704556236],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_a601cd8d942bb4f19ce425b94ee3cb9b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3b6b6ec5e472d8eb4d0b8a30df0698c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_42318e303160020364a52502f0432e7c = $(`<div id="html_42318e303160020364a52502f0432e7c" style="width: 100.0%; height: 100.0%;">             <b>Rogério Pereira da Silva</b><br>             Endereço: Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_3b6b6ec5e472d8eb4d0b8a30df0698c7.setContent(html_42318e303160020364a52502f0432e7c);
+            
+        
+
+        marker_54e06958159b47199ab50451dc57fd81.bindPopup(popup_3b6b6ec5e472d8eb4d0b8a30df0698c7)
+        ;
+
+        
+    
+    
+                marker_54e06958159b47199ab50451dc57fd81.setIcon(icon_a601cd8d942bb4f19ce425b94ee3cb9b);
+            
+    
+            var marker_f38d5584bf6a01f676d1d997e94bfd46 = L.marker(
+                [-24.6492, -50.8466],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_22eadd50aa562f8e786249530b2e82f3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1e46dc333ca7baa1f5344b8d11d685cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fcdbde2cd6a38d3e55ec8034b2cd2186 = $(`<div id="html_fcdbde2cd6a38d3e55ec8034b2cd2186" style="width: 100.0%; height: 100.0%;">             <b>Casa dos Pneus</b><br>             Endereço: Rua Leôncio Miro Rocha, 1355, Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: (42) 3276-2324<br></div>`)[0];
+                popup_1e46dc333ca7baa1f5344b8d11d685cb.setContent(html_fcdbde2cd6a38d3e55ec8034b2cd2186);
+            
+        
+
+        marker_f38d5584bf6a01f676d1d997e94bfd46.bindPopup(popup_1e46dc333ca7baa1f5344b8d11d685cb)
+        ;
+
+        
+    
+    
+                marker_f38d5584bf6a01f676d1d997e94bfd46.setIcon(icon_22eadd50aa562f8e786249530b2e82f3);
+            
+    
+            var marker_10493f87ecd232193a51010386ee0f08 = L.marker(
+                [-24.64916067145944, -50.846705504026566],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_09e65226e1ad9645f4dea0c213c4c169 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b65a87a45ac7047936f1942589fa1f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d4492a44ae36d5c327e545484dcbe736 = $(`<div id="html_d4492a44ae36d5c327e545484dcbe736" style="width: 100.0%; height: 100.0%;">             <b>G2 Rodas e Pneus</b><br>             Endereço: Reserva/PR<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_4b65a87a45ac7047936f1942589fa1f9.setContent(html_d4492a44ae36d5c327e545484dcbe736);
+            
+        
+
+        marker_10493f87ecd232193a51010386ee0f08.bindPopup(popup_4b65a87a45ac7047936f1942589fa1f9)
+        ;
+
+        
+    
+    
+                marker_10493f87ecd232193a51010386ee0f08.setIcon(icon_09e65226e1ad9645f4dea0c213c4c169);
+            
+    
+            var marker_ac9530345e336763dd056249bc81ef73 = L.marker(
+                [-24.650610353559042, -50.84551225002536],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_a8d79b321b1849e2b7b7badfdd76e037 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da469044c46edc227c16022a9497eb57 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fcbb90ae48956889c6a9bce623f3aacc = $(`<div id="html_fcbb90ae48956889c6a9bce623f3aacc" style="width: 100.0%; height: 100.0%;">             <b>Lojas MM</b><br>             Endereço: Reserva/PR<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_da469044c46edc227c16022a9497eb57.setContent(html_fcbb90ae48956889c6a9bce623f3aacc);
+            
+        
+
+        marker_ac9530345e336763dd056249bc81ef73.bindPopup(popup_da469044c46edc227c16022a9497eb57)
+        ;
+
+        
+    
+    
+                marker_ac9530345e336763dd056249bc81ef73.setIcon(icon_a8d79b321b1849e2b7b7badfdd76e037);
+            
+    
+            var marker_c6d22af163c592de162eb4f65e6dcb5c = L.marker(
+                [-24.650076950841353, -50.846802666329204],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_89ef7f5009aec869ef41d27e0932e423 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41c6d4ad32e7144af4da9bcfacbcbeb7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17e4bdaae2ac554d16ff1503f4e1d9cc = $(`<div id="html_17e4bdaae2ac554d16ff1503f4e1d9cc" style="width: 100.0%; height: 100.0%;">             <b>Joãozinho Pneus e Truck Center</b><br>             Endereço: Av. Coronel Rogério Borba, 1910, São José, Reserva/PR<br>             Cidade: Reserva<br>             Contato: (42) 3276-2723, (42) 98814-2419<br></div>`)[0];
+                popup_41c6d4ad32e7144af4da9bcfacbcbeb7.setContent(html_17e4bdaae2ac554d16ff1503f4e1d9cc);
+            
+        
+
+        marker_c6d22af163c592de162eb4f65e6dcb5c.bindPopup(popup_41c6d4ad32e7144af4da9bcfacbcbeb7)
+        ;
+
+        
+    
+    
+                marker_c6d22af163c592de162eb4f65e6dcb5c.setIcon(icon_89ef7f5009aec869ef41d27e0932e423);
+            
+    
+            var marker_7dbac6911037ffe6146539e5ce44c12f = L.marker(
+                [-24.64927135185281, -50.84452502551745],
+                {
+}
+            ).addTo(map_d8be35b94d0560a10e2b37beb759cb87);
+        
+    
+            var icon_27f477ccdb92837b5af170181d458791 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f0337f2283c8cea16c64cb2e0527557f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6177dfcf07b5d35de9e421c0c50d75aa = $(`<div id="html_6177dfcf07b5d35de9e421c0c50d75aa" style="width: 100.0%; height: 100.0%;">             <b>Sidrac Pneus</b><br>             Endereço: Rua Generoso Marques, 888, Centro, Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_f0337f2283c8cea16c64cb2e0527557f.setContent(html_6177dfcf07b5d35de9e421c0c50d75aa);
+            
+        
+
+        marker_7dbac6911037ffe6146539e5ce44c12f.bindPopup(popup_f0337f2283c8cea16c64cb2e0527557f)
+        ;
+
+        
+    
+    
+                marker_7dbac6911037ffe6146539e5ce44c12f.setIcon(icon_27f477ccdb92837b5af170181d458791);
+            
+</script>
+</html>
