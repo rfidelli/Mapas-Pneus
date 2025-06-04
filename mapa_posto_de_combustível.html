@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2a87572d88d299473359e6365293ec8b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                top: 10px; left: 50px; width: 800px; height: 60px; 
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:16px; padding: 8px;
+                border-radius: 5px;">
+        <h3 style="margin-top: 0; text-align: center;">Mapa de Posto de Combustívels no Raio de 120km de Telêmaco Borba</h3>
+        <div style="text-align: center;">Total: 40 estabelecimentos - CADA PONTO É UM ESTABELECIMENTO INDIVIDUAL</div>
+    </div>
+    
+    
+    <div style="position: fixed; 
+                bottom: 10px; right: 10px; width: 300px;
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:12px; padding: 8px;
+                border-radius: 5px;">
+        <b>Instruções:</b><br>
+        • Cada ponto representa um estabelecimento individual<br>
+        • Clique em qualquer marcador para ver detalhes<br>
+        • Use a roda do mouse para zoom<br>
+        • Clique e arraste para mover o mapa
+    </div>
+    
+    
+            <div class="folium-map" id="map_2a87572d88d299473359e6365293ec8b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2a87572d88d299473359e6365293ec8b = L.map(
+                "map_2a87572d88d299473359e6365293ec8b",
+                {
+                    center: [-24.3245, -50.6176],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_415702938fe10e92271875e937878e1c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_415702938fe10e92271875e937878e1c.addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var marker_82c7bd4dba65f28ee7f5afde36dc1dfd = L.marker(
+                [-24.3245, -50.6176],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_b9d394609cd8899fef21c554cf72927a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0a76199b261b14f9a97f2bc6521c3af8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5e880aa6a531977ff5f6f47ebc2071a9 = $(`<div id="html_5e880aa6a531977ff5f6f47ebc2071a9" style="width: 100.0%; height: 100.0%;">Telêmaco Borba - Centro do Raio de 120km</div>`)[0];
+                popup_0a76199b261b14f9a97f2bc6521c3af8.setContent(html_5e880aa6a531977ff5f6f47ebc2071a9);
+            
+        
+
+        marker_82c7bd4dba65f28ee7f5afde36dc1dfd.bindPopup(popup_0a76199b261b14f9a97f2bc6521c3af8)
+        ;
+
+        
+    
+    
+                marker_82c7bd4dba65f28ee7f5afde36dc1dfd.setIcon(icon_b9d394609cd8899fef21c554cf72927a);
+            
+    
+            var circle_c2d77f79bb4c16d211f805214b3e2c31 = L.circle(
+                [-24.3245, -50.6176],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 120000, "stroke": true, "weight": 3}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var marker_12cb79c0e6e756925d050f2743c84034 = L.marker(
+                [-24.3245, -50.6176],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_7401c770e09b97a5e6dd193cdff1826f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c13f6c109a666c13627d86d961ab2dd9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da317f9a7bfceac56c3db078904938e6 = $(`<div id="html_da317f9a7bfceac56c3db078904938e6" style="width: 100.0%; height: 100.0%;">             <b>Posto Aliança</b><br>             Endereço: Rodovia PR-160, nº 800, Km 21,5, Telêmaco Borba/PR, CEP 84268-310<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_c13f6c109a666c13627d86d961ab2dd9.setContent(html_da317f9a7bfceac56c3db078904938e6);
+            
+        
+
+        marker_12cb79c0e6e756925d050f2743c84034.bindPopup(popup_c13f6c109a666c13627d86d961ab2dd9)
+        ;
+
+        
+    
+    
+                marker_12cb79c0e6e756925d050f2743c84034.setIcon(icon_7401c770e09b97a5e6dd193cdff1826f);
+            
+    
+            var marker_ab5855935a39cc2e25f81ac385a1178a = L.marker(
+                [-24.323988320984196, -50.61690722013846],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_afd05c47caaef0615b4d025d09640a08 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_04534bc4f088828abf37bcc3d146dc58 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8b91dd112028929502159c7b8c08661 = $(`<div id="html_d8b91dd112028929502159c7b8c08661" style="width: 100.0%; height: 100.0%;">             <b>Posto Jerusalem</b><br>             Endereço: Av. Chanceler Horácio Laffer, 1205, Alto das Oliveiras, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_04534bc4f088828abf37bcc3d146dc58.setContent(html_d8b91dd112028929502159c7b8c08661);
+            
+        
+
+        marker_ab5855935a39cc2e25f81ac385a1178a.bindPopup(popup_04534bc4f088828abf37bcc3d146dc58)
+        ;
+
+        
+    
+    
+                marker_ab5855935a39cc2e25f81ac385a1178a.setIcon(icon_afd05c47caaef0615b4d025d09640a08);
+            
+    
+            var marker_92b6b59322f9157ea6567966b4fc1931 = L.marker(
+                [-24.324733789667693, -50.6172169744232],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_e111dcb0845e0fb2e3f2b8333329fe54 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_82c48e7696d9948e0d211129de78a70e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e36393ff22858c6e2b0fd1b839acecc = $(`<div id="html_8e36393ff22858c6e2b0fd1b839acecc" style="width: 100.0%; height: 100.0%;">             <b>Auto Posto Santa Rita</b><br>             Endereço: Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_82c48e7696d9948e0d211129de78a70e.setContent(html_8e36393ff22858c6e2b0fd1b839acecc);
+            
+        
+
+        marker_92b6b59322f9157ea6567966b4fc1931.bindPopup(popup_82c48e7696d9948e0d211129de78a70e)
+        ;
+
+        
+    
+    
+                marker_92b6b59322f9157ea6567966b4fc1931.setIcon(icon_e111dcb0845e0fb2e3f2b8333329fe54);
+            
+    
+            var marker_c9185cdd548d8855fd95a34f13cb2e8f = L.marker(
+                [-24.326119434315235, -50.619527368922945],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_4902fdb7a1744d4f7b18f5eda606b000 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8857d2e15367bb95075241c58704cd91 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dd13f09e91a27283ce50e55f8658dcc = $(`<div id="html_1dd13f09e91a27283ce50e55f8658dcc" style="width: 100.0%; height: 100.0%;">             <b>Posto Shell (Costa Biscaia e Cia LTDA)</b><br>             Endereço: Rodovia PR-160, S/N, KM 22.5, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_8857d2e15367bb95075241c58704cd91.setContent(html_1dd13f09e91a27283ce50e55f8658dcc);
+            
+        
+
+        marker_c9185cdd548d8855fd95a34f13cb2e8f.bindPopup(popup_8857d2e15367bb95075241c58704cd91)
+        ;
+
+        
+    
+    
+                marker_c9185cdd548d8855fd95a34f13cb2e8f.setIcon(icon_4902fdb7a1744d4f7b18f5eda606b000);
+            
+    
+            var marker_ea34cbdfa13a3dc6725e726e24de74f6 = L.marker(
+                [-24.32379078368831, -50.61916586618914],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_ea9e28ff9d7707fd4b9d3d64f1c845bf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_08200efe06c34b002e0bc429d950f576 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f308485b9d4cfca4f2bb73f9e18bc45 = $(`<div id="html_3f308485b9d4cfca4f2bb73f9e18bc45" style="width: 100.0%; height: 100.0%;">             <b>Posto Motivação</b><br>             Endereço: Avenida Nações Unidas, 291, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_08200efe06c34b002e0bc429d950f576.setContent(html_3f308485b9d4cfca4f2bb73f9e18bc45);
+            
+        
+
+        marker_ea34cbdfa13a3dc6725e726e24de74f6.bindPopup(popup_08200efe06c34b002e0bc429d950f576)
+        ;
+
+        
+    
+    
+                marker_ea34cbdfa13a3dc6725e726e24de74f6.setIcon(icon_ea9e28ff9d7707fd4b9d3d64f1c845bf);
+            
+    
+            var marker_88f8f03ae31f3e7fcee7f1c56e848b9c = L.marker(
+                [-24.32522390565063, -50.61477991968412],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_9af696787fca6d363ab87e6775515837 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bd6195409195874076037e6fd0f49f34 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_94a27b5fb4015282fb80e751810338bc = $(`<div id="html_94a27b5fb4015282fb80e751810338bc" style="width: 100.0%; height: 100.0%;">             <b>Posto Battistella</b><br>             Endereço: Rodovia PR-160, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_bd6195409195874076037e6fd0f49f34.setContent(html_94a27b5fb4015282fb80e751810338bc);
+            
+        
+
+        marker_88f8f03ae31f3e7fcee7f1c56e848b9c.bindPopup(popup_bd6195409195874076037e6fd0f49f34)
+        ;
+
+        
+    
+    
+                marker_88f8f03ae31f3e7fcee7f1c56e848b9c.setIcon(icon_9af696787fca6d363ab87e6775515837);
+            
+    
+            var marker_dd7ad5b6f098883f069f8bcdede95612 = L.marker(
+                [-24.322858953931643, -50.61850729144402],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_805868a65edbd0dea39821a42604b9ac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5cbdd380136a6de4e793260bc7666ed6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_50dda7f42763e34a036e1b09753d21e1 = $(`<div id="html_50dda7f42763e34a036e1b09753d21e1" style="width: 100.0%; height: 100.0%;">             <b>Comércio de Combustíveis e Lubrificantes Massao</b><br>             Endereço: Avenida Presidente Kennedy, Telêmaco Borba/PR<br>             Cidade: Telemaco Borba<br>             Contato: Não especificado<br></div>`)[0];
+                popup_5cbdd380136a6de4e793260bc7666ed6.setContent(html_50dda7f42763e34a036e1b09753d21e1);
+            
+        
+
+        marker_dd7ad5b6f098883f069f8bcdede95612.bindPopup(popup_5cbdd380136a6de4e793260bc7666ed6)
+        ;
+
+        
+    
+    
+                marker_dd7ad5b6f098883f069f8bcdede95612.setIcon(icon_805868a65edbd0dea39821a42604b9ac);
+            
+    
+            var marker_dc0a0088e667f7dd6db4bb3a7d0ff148 = L.marker(
+                [-25.0947, -50.1619],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_f932dc666a0658c8e5658c578a17d5a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c57ee7c2c221739121d93a7d71b458bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_005187c991d1f023d6a87bb345f4438c = $(`<div id="html_005187c991d1f023d6a87bb345f4438c" style="width: 100.0%; height: 100.0%;">             <b>Rede de Postos Contorno</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_c57ee7c2c221739121d93a7d71b458bc.setContent(html_005187c991d1f023d6a87bb345f4438c);
+            
+        
+
+        marker_dc0a0088e667f7dd6db4bb3a7d0ff148.bindPopup(popup_c57ee7c2c221739121d93a7d71b458bc)
+        ;
+
+        
+    
+    
+                marker_dc0a0088e667f7dd6db4bb3a7d0ff148.setIcon(icon_f932dc666a0658c8e5658c578a17d5a4);
+            
+    
+            var marker_f1598ed7b20edf1604618d2cc61f14ef = L.marker(
+                [-25.0945460605006, -50.161833618208796],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_db7caa809043925db9286aec0e395d1d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_de08efd0a4cb331dea94e4c5a5507bbd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_53a3bd330c2c24bb83a1ae17280c2027 = $(`<div id="html_53a3bd330c2c24bb83a1ae17280c2027" style="width: 100.0%; height: 100.0%;">             <b>Posto Bife em Pé</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_de08efd0a4cb331dea94e4c5a5507bbd.setContent(html_53a3bd330c2c24bb83a1ae17280c2027);
+            
+        
+
+        marker_f1598ed7b20edf1604618d2cc61f14ef.bindPopup(popup_de08efd0a4cb331dea94e4c5a5507bbd)
+        ;
+
+        
+    
+    
+                marker_f1598ed7b20edf1604618d2cc61f14ef.setIcon(icon_db7caa809043925db9286aec0e395d1d);
+            
+    
+            var marker_3c4961fae4838a4a05cf5e8e57876a20 = L.marker(
+                [-25.09602260574661, -50.1620818123027],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_7d813941ff6d09cbb808ac978b9cacba = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_66c6b9def3ad9f3435c760ec70ddb48a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_14930f2ead133bee59a5ab46fbe31d49 = $(`<div id="html_14930f2ead133bee59a5ab46fbe31d49" style="width: 100.0%; height: 100.0%;">             <b>Auto Posto Cinco Primos</b><br>             Endereço: Av. Anita Garibaldi, 1000, Órfãs, Ponta Grossa/PR, CEP 84015-050<br>             Cidade: Ponta Grossa<br>             Contato: (42) 3224-9292, postocincoprimos@redeprimos.com<br></div>`)[0];
+                popup_66c6b9def3ad9f3435c760ec70ddb48a.setContent(html_14930f2ead133bee59a5ab46fbe31d49);
+            
+        
+
+        marker_3c4961fae4838a4a05cf5e8e57876a20.bindPopup(popup_66c6b9def3ad9f3435c760ec70ddb48a)
+        ;
+
+        
+    
+    
+                marker_3c4961fae4838a4a05cf5e8e57876a20.setIcon(icon_7d813941ff6d09cbb808ac978b9cacba);
+            
+    
+            var marker_e9bf764b098643925d9ab5947a029685 = L.marker(
+                [-25.09359432464489, -50.16267712444651],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_d53663b8293d39f249750906fc1b482f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9852176044375f186b46b5c78a78a3c3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4949e2189289f4509edc0da2fa5e1e31 = $(`<div id="html_4949e2189289f4509edc0da2fa5e1e31" style="width: 100.0%; height: 100.0%;">             <b>Auto Posto do Mel</b><br>             Endereço: Avenida Souza Naves, S/N, Cristo Rei, Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_9852176044375f186b46b5c78a78a3c3.setContent(html_4949e2189289f4509edc0da2fa5e1e31);
+            
+        
+
+        marker_e9bf764b098643925d9ab5947a029685.bindPopup(popup_9852176044375f186b46b5c78a78a3c3)
+        ;
+
+        
+    
+    
+                marker_e9bf764b098643925d9ab5947a029685.setIcon(icon_d53663b8293d39f249750906fc1b482f);
+            
+    
+            var marker_afcdabb6415eb5226eb8c3251aaa0257 = L.marker(
+                [-25.093706464228465, -50.159427634626006],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_81d0165e353ee7cedd2d2d2523cad842 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d7364331efbd6dd1c9e48942fa033e6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5351fa8812d650495fa886141c71dd4a = $(`<div id="html_5351fa8812d650495fa886141c71dd4a" style="width: 100.0%; height: 100.0%;">             <b>Comercial de Combustíveis Domene</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_0d7364331efbd6dd1c9e48942fa033e6.setContent(html_5351fa8812d650495fa886141c71dd4a);
+            
+        
+
+        marker_afcdabb6415eb5226eb8c3251aaa0257.bindPopup(popup_0d7364331efbd6dd1c9e48942fa033e6)
+        ;
+
+        
+    
+    
+                marker_afcdabb6415eb5226eb8c3251aaa0257.setIcon(icon_81d0165e353ee7cedd2d2d2523cad842);
+            
+    
+            var marker_671ff2d28b59f6b43e7c2bd319b573f3 = L.marker(
+                [-25.094875308191536, -50.162612423088596],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_1cd6f0d8accfbdeaedb9e8e5149ad8f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fbac38cc5bb0d0e2b01733af62687572 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ccd37a07f6147154b21008aca46ad1d2 = $(`<div id="html_ccd37a07f6147154b21008aca46ad1d2" style="width: 100.0%; height: 100.0%;">             <b>Posto de Combustíveis FOX</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_fbac38cc5bb0d0e2b01733af62687572.setContent(html_ccd37a07f6147154b21008aca46ad1d2);
+            
+        
+
+        marker_671ff2d28b59f6b43e7c2bd319b573f3.bindPopup(popup_fbac38cc5bb0d0e2b01733af62687572)
+        ;
+
+        
+    
+    
+                marker_671ff2d28b59f6b43e7c2bd319b573f3.setIcon(icon_1cd6f0d8accfbdeaedb9e8e5149ad8f6);
+            
+    
+            var marker_01cc6cb32c21a5e6901cb3eca551d0c8 = L.marker(
+                [-25.093611419319394, -50.16132166844318],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_851ce4142e786ee209487dca270a1e21 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_152d5916bc9e37164329ab27e9875034 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf752d00f5c974a4b3d3b083c2bbfba7 = $(`<div id="html_bf752d00f5c974a4b3d3b083c2bbfba7" style="width: 100.0%; height: 100.0%;">             <b>Posto H Sacchi (24 Horas)</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_152d5916bc9e37164329ab27e9875034.setContent(html_bf752d00f5c974a4b3d3b083c2bbfba7);
+            
+        
+
+        marker_01cc6cb32c21a5e6901cb3eca551d0c8.bindPopup(popup_152d5916bc9e37164329ab27e9875034)
+        ;
+
+        
+    
+    
+                marker_01cc6cb32c21a5e6901cb3eca551d0c8.setIcon(icon_851ce4142e786ee209487dca270a1e21);
+            
+    
+            var marker_7b6a838fa83cf84ab4047794fbc7ad3e = L.marker(
+                [-25.095951931872598, -50.15798587471486],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_cee185b60d5ffb4ab807edeb1fc3232d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b31ea31bbca9e78bfc0b1c445d05ae03 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e91186b1884d8ed20dc05a066981fe46 = $(`<div id="html_e91186b1884d8ed20dc05a066981fe46" style="width: 100.0%; height: 100.0%;">             <b>Rede Guapo de Postos de Combustível</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_b31ea31bbca9e78bfc0b1c445d05ae03.setContent(html_e91186b1884d8ed20dc05a066981fe46);
+            
+        
+
+        marker_7b6a838fa83cf84ab4047794fbc7ad3e.bindPopup(popup_b31ea31bbca9e78bfc0b1c445d05ae03)
+        ;
+
+        
+    
+    
+                marker_7b6a838fa83cf84ab4047794fbc7ad3e.setIcon(icon_cee185b60d5ffb4ab807edeb1fc3232d);
+            
+    
+            var marker_b05426b5d3a2d817dfa974fc72d40282 = L.marker(
+                [-25.094215303815652, -50.158185680514514],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_be732d0722e8037ce2084e626ffa1a22 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fff73983f786d7945100c39e266d93e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5dff72610d8a8bb227f9a9d849190c0f = $(`<div id="html_5dff72610d8a8bb227f9a9d849190c0f" style="width: 100.0%; height: 100.0%;">             <b>Dal Col Comércio de Combustíveis</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_fff73983f786d7945100c39e266d93e5.setContent(html_5dff72610d8a8bb227f9a9d849190c0f);
+            
+        
+
+        marker_b05426b5d3a2d817dfa974fc72d40282.bindPopup(popup_fff73983f786d7945100c39e266d93e5)
+        ;
+
+        
+    
+    
+                marker_b05426b5d3a2d817dfa974fc72d40282.setIcon(icon_be732d0722e8037ce2084e626ffa1a22);
+            
+    
+            var marker_f37ccf089d77d4d5bff5bc3b4c58c55a = L.marker(
+                [-25.094862606035047, -50.163560607979484],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_730eeabffb6e3cf02e517d4ad6748413 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7717de5a13d350ff064bdbf42b5b64f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39382bc54ae102a56ab1dcacbea24b8a = $(`<div id="html_39382bc54ae102a56ab1dcacbea24b8a" style="width: 100.0%; height: 100.0%;">             <b>Postos Mahle</b><br>             Endereço: Ponta Grossa/PR<br>             Cidade: Ponta Grossa<br>             Contato: Não especificado<br></div>`)[0];
+                popup_e7717de5a13d350ff064bdbf42b5b64f.setContent(html_39382bc54ae102a56ab1dcacbea24b8a);
+            
+        
+
+        marker_f37ccf089d77d4d5bff5bc3b4c58c55a.bindPopup(popup_e7717de5a13d350ff064bdbf42b5b64f)
+        ;
+
+        
+    
+    
+                marker_f37ccf089d77d4d5bff5bc3b4c58c55a.setIcon(icon_730eeabffb6e3cf02e517d4ad6748413);
+            
+    
+            var marker_d597aa5f78b296f4e6f9483ce53e8b8e = L.marker(
+                [-24.5153, -50.4176],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_bd318761a186b58dc3f767e3a24aa8f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a2112843d13f611836c76ef121d51e0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0db4b971f87236f273aebd44931d3ce5 = $(`<div id="html_0db4b971f87236f273aebd44931d3ce5" style="width: 100.0%; height: 100.0%;">             <b>Posto Guartela</b><br>             Endereço: Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_6a2112843d13f611836c76ef121d51e0.setContent(html_0db4b971f87236f273aebd44931d3ce5);
+            
+        
+
+        marker_d597aa5f78b296f4e6f9483ce53e8b8e.bindPopup(popup_6a2112843d13f611836c76ef121d51e0)
+        ;
+
+        
+    
+    
+                marker_d597aa5f78b296f4e6f9483ce53e8b8e.setIcon(icon_bd318761a186b58dc3f767e3a24aa8f9);
+            
+    
+            var marker_55ddc27c21100bb26f4499ca06a81a8e = L.marker(
+                [-24.515971311142717, -50.41809752818672],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_b99fb7306acb5c6bc1e04904eaab502d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_33b808f07a098df27a9ef4e240c767df = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12214136607e3d6183a55f53bdc3407a = $(`<div id="html_12214136607e3d6183a55f53bdc3407a" style="width: 100.0%; height: 100.0%;">             <b>Auto Posto R7 Ltda</b><br>             Endereço: Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_33b808f07a098df27a9ef4e240c767df.setContent(html_12214136607e3d6183a55f53bdc3407a);
+            
+        
+
+        marker_55ddc27c21100bb26f4499ca06a81a8e.bindPopup(popup_33b808f07a098df27a9ef4e240c767df)
+        ;
+
+        
+    
+    
+                marker_55ddc27c21100bb26f4499ca06a81a8e.setIcon(icon_b99fb7306acb5c6bc1e04904eaab502d);
+            
+    
+            var marker_b3747cabc387061ddc6597694f00e9b2 = L.marker(
+                [-24.51637262392203, -50.417579582234026],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_0ea4152a57f04f40988a65848b96fac8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_07ceaedc413481fa10197574166a86c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_45b80bec93867a3fb4e55a8e07458220 = $(`<div id="html_45b80bec93867a3fb4e55a8e07458220" style="width: 100.0%; height: 100.0%;">             <b>Jubapetrol Ltda</b><br>             Endereço: Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_07ceaedc413481fa10197574166a86c9.setContent(html_45b80bec93867a3fb4e55a8e07458220);
+            
+        
+
+        marker_b3747cabc387061ddc6597694f00e9b2.bindPopup(popup_07ceaedc413481fa10197574166a86c9)
+        ;
+
+        
+    
+    
+                marker_b3747cabc387061ddc6597694f00e9b2.setIcon(icon_0ea4152a57f04f40988a65848b96fac8);
+            
+    
+            var marker_7888afcaff16236dfe2416b826d1053c = L.marker(
+                [-24.514332235027965, -50.417100426728865],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_d69e2e2f5c51639a573cbadcfdc9d155 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_255f4a45bf8380171790ff1c2867fe6a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c60f95baecee0fe7bac25317b8a82603 = $(`<div id="html_c60f95baecee0fe7bac25317b8a82603" style="width: 100.0%; height: 100.0%;">             <b>Posto Marabá</b><br>             Endereço: Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_255f4a45bf8380171790ff1c2867fe6a.setContent(html_c60f95baecee0fe7bac25317b8a82603);
+            
+        
+
+        marker_7888afcaff16236dfe2416b826d1053c.bindPopup(popup_255f4a45bf8380171790ff1c2867fe6a)
+        ;
+
+        
+    
+    
+                marker_7888afcaff16236dfe2416b826d1053c.setIcon(icon_d69e2e2f5c51639a573cbadcfdc9d155);
+            
+    
+            var marker_e3288451631b4ce95a61d93c4a145e62 = L.marker(
+                [-24.516182110866996, -50.416547633608864],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_dbb429c9f0575ada6981c71ef0a4ebb8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c30f35a82406424dc13fdb5911cc740 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6ff211db1fda580765a9d767a5df76fc = $(`<div id="html_6ff211db1fda580765a9d767a5df76fc" style="width: 100.0%; height: 100.0%;">             <b>Auto Posto do Pão de Queijo Ltda</b><br>             Endereço: Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_4c30f35a82406424dc13fdb5911cc740.setContent(html_6ff211db1fda580765a9d767a5df76fc);
+            
+        
+
+        marker_e3288451631b4ce95a61d93c4a145e62.bindPopup(popup_4c30f35a82406424dc13fdb5911cc740)
+        ;
+
+        
+    
+    
+                marker_e3288451631b4ce95a61d93c4a145e62.setIcon(icon_dbb429c9f0575ada6981c71ef0a4ebb8);
+            
+    
+            var marker_e18b975092635b61462976683153d1ff = L.marker(
+                [-24.516992712756316, -50.41646932233391],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_94f656a61a63204738f8aa8ddc650b2d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_84181b0c52cded0c97f59e747aae2293 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_543591a602fd964c40fb2b6e1b263836 = $(`<div id="html_543591a602fd964c40fb2b6e1b263836" style="width: 100.0%; height: 100.0%;">             <b>Posto Frísia</b><br>             Endereço: Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_84181b0c52cded0c97f59e747aae2293.setContent(html_543591a602fd964c40fb2b6e1b263836);
+            
+        
+
+        marker_e18b975092635b61462976683153d1ff.bindPopup(popup_84181b0c52cded0c97f59e747aae2293)
+        ;
+
+        
+    
+    
+                marker_e18b975092635b61462976683153d1ff.setIcon(icon_94f656a61a63204738f8aa8ddc650b2d);
+            
+    
+            var marker_71b0b3c01e8ab4ba01e98efbba283e3c = L.marker(
+                [-24.514475419516195, -50.41563751809607],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_8e06fdffeb88ce78fd44437327c2d00c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_df8af1e0ece70fe6408bf69779b386a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_086ad941774f7ff130405ec8984e8177 = $(`<div id="html_086ad941774f7ff130405ec8984e8177" style="width: 100.0%; height: 100.0%;">             <b>Posto Rede Juninho</b><br>             Endereço: Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_df8af1e0ece70fe6408bf69779b386a4.setContent(html_086ad941774f7ff130405ec8984e8177);
+            
+        
+
+        marker_71b0b3c01e8ab4ba01e98efbba283e3c.bindPopup(popup_df8af1e0ece70fe6408bf69779b386a4)
+        ;
+
+        
+    
+    
+                marker_71b0b3c01e8ab4ba01e98efbba283e3c.setIcon(icon_8e06fdffeb88ce78fd44437327c2d00c);
+            
+    
+            var marker_cf9930e87a44182908524064a0a55163 = L.marker(
+                [-24.51596151507452, -50.418963160583665],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_ae3077fa7f3ac1c1dbf440edf6c32921 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0616516fd26eceefca16876453fbd3da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9fa3166b3c8544611c967d127253673a = $(`<div id="html_9fa3166b3c8544611c967d127253673a" style="width: 100.0%; height: 100.0%;">             <b>Posto Guapo</b><br>             Endereço: Tibagi/PR<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_0616516fd26eceefca16876453fbd3da.setContent(html_9fa3166b3c8544611c967d127253673a);
+            
+        
+
+        marker_cf9930e87a44182908524064a0a55163.bindPopup(popup_0616516fd26eceefca16876453fbd3da)
+        ;
+
+        
+    
+    
+                marker_cf9930e87a44182908524064a0a55163.setIcon(icon_ae3077fa7f3ac1c1dbf440edf6c32921);
+            
+    
+            var marker_d27328eec6685e672bd28250c11910a4 = L.marker(
+                [-24.512319187625728, -50.41774234825098],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_9aad2e251824327797fcb22e06df79f1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b4f5f7613f71a31ff341539496410200 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9a541aedc8ce95391134c251ed0e9da0 = $(`<div id="html_9a541aedc8ce95391134c251ed0e9da0" style="width: 100.0%; height: 100.0%;">             <b>Petroreis Comércio de Combustíveis</b><br>             Endereço: Tibagi/PR, CEP 84300-000<br>             Cidade: Tibagi<br>             Contato: Não especificado<br></div>`)[0];
+                popup_b4f5f7613f71a31ff341539496410200.setContent(html_9a541aedc8ce95391134c251ed0e9da0);
+            
+        
+
+        marker_d27328eec6685e672bd28250c11910a4.bindPopup(popup_b4f5f7613f71a31ff341539496410200)
+        ;
+
+        
+    
+    
+                marker_d27328eec6685e672bd28250c11910a4.setIcon(icon_9aad2e251824327797fcb22e06df79f1);
+            
+    
+            var marker_1f0db4c04c3dbf3d5785658b0744fb46 = L.marker(
+                [-24.2058, -50.9185],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_f18ab1b55630b3306d176a54f5288bff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_564e8be8308809459b9d30fc52c8eafa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f43e02c98b3111ffba947947db1b2857 = $(`<div id="html_f43e02c98b3111ffba947947db1b2857" style="width: 100.0%; height: 100.0%;">             <b>Posto Boa Vista</b><br>             Endereço: Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_564e8be8308809459b9d30fc52c8eafa.setContent(html_f43e02c98b3111ffba947947db1b2857);
+            
+        
+
+        marker_1f0db4c04c3dbf3d5785658b0744fb46.bindPopup(popup_564e8be8308809459b9d30fc52c8eafa)
+        ;
+
+        
+    
+    
+                marker_1f0db4c04c3dbf3d5785658b0744fb46.setIcon(icon_f18ab1b55630b3306d176a54f5288bff);
+            
+    
+            var marker_20e4c4e69e75e0b2bc5e84d2a7fed5de = L.marker(
+                [-24.204828252864765, -50.91846154854029],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_93b95a8a89c0a0ad35d0869982875533 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c24b9ddefc7c8b4277527d8cf26be907 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89fc82c9c7545cd7ca3b5361d7ce5227 = $(`<div id="html_89fc82c9c7545cd7ca3b5361d7ce5227" style="width: 100.0%; height: 100.0%;">             <b>Posto Paraíso</b><br>             Endereço: Distrito de Lageado Bonito, Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_c24b9ddefc7c8b4277527d8cf26be907.setContent(html_89fc82c9c7545cd7ca3b5361d7ce5227);
+            
+        
+
+        marker_20e4c4e69e75e0b2bc5e84d2a7fed5de.bindPopup(popup_c24b9ddefc7c8b4277527d8cf26be907)
+        ;
+
+        
+    
+    
+                marker_20e4c4e69e75e0b2bc5e84d2a7fed5de.setIcon(icon_93b95a8a89c0a0ad35d0869982875533);
+            
+    
+            var marker_a747231667af4266fd899f483b4c24c5 = L.marker(
+                [-24.20449291118668, -50.91721979665641],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_a6090903cbcc80617103412d77883f0c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b7a217b37a355c3fa3081d59f4469c1c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89b48cf850a84806684a2ee44b2f9fb5 = $(`<div id="html_89b48cf850a84806684a2ee44b2f9fb5" style="width: 100.0%; height: 100.0%;">             <b>Posto Arco-íris</b><br>             Endereço: Avenida Paraná, 371, Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_b7a217b37a355c3fa3081d59f4469c1c.setContent(html_89b48cf850a84806684a2ee44b2f9fb5);
+            
+        
+
+        marker_a747231667af4266fd899f483b4c24c5.bindPopup(popup_b7a217b37a355c3fa3081d59f4469c1c)
+        ;
+
+        
+    
+    
+                marker_a747231667af4266fd899f483b4c24c5.setIcon(icon_a6090903cbcc80617103412d77883f0c);
+            
+    
+            var marker_2b7315a74444eb891fe30e53bf57edd9 = L.marker(
+                [-24.20652281673822, -50.91854618653691],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_112d2d1aa72d0b65af8adee103f9f946 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0ce9eadd5ea91291f15fc15c95d89005 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02b8d49e7f8bbc37de92d5096ae26e7c = $(`<div id="html_02b8d49e7f8bbc37de92d5096ae26e7c" style="width: 100.0%; height: 100.0%;">             <b>Posto Ipiranga</b><br>             Endereço: Avenida Paraná, 331, Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_0ce9eadd5ea91291f15fc15c95d89005.setContent(html_02b8d49e7f8bbc37de92d5096ae26e7c);
+            
+        
+
+        marker_2b7315a74444eb891fe30e53bf57edd9.bindPopup(popup_0ce9eadd5ea91291f15fc15c95d89005)
+        ;
+
+        
+    
+    
+                marker_2b7315a74444eb891fe30e53bf57edd9.setIcon(icon_112d2d1aa72d0b65af8adee103f9f946);
+            
+    
+            var marker_cae134b6d173a9be3edcc85248d1a5c4 = L.marker(
+                [-24.205841714022412, -50.91890094053505],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_f94a013ce88760b339bf169f3f97741b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5257fb8712ef2b52a4acfc1e4aa4988 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cd7336d5a7bcc8d5f11b5c64b6ae2987 = $(`<div id="html_cd7336d5a7bcc8d5f11b5c64b6ae2987" style="width: 100.0%; height: 100.0%;">             <b>Comercial Autoposto Regina</b><br>             Endereço: Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_c5257fb8712ef2b52a4acfc1e4aa4988.setContent(html_cd7336d5a7bcc8d5f11b5c64b6ae2987);
+            
+        
+
+        marker_cae134b6d173a9be3edcc85248d1a5c4.bindPopup(popup_c5257fb8712ef2b52a4acfc1e4aa4988)
+        ;
+
+        
+    
+    
+                marker_cae134b6d173a9be3edcc85248d1a5c4.setIcon(icon_f94a013ce88760b339bf169f3f97741b);
+            
+    
+            var marker_125020c0e5dfe580b36011d2cfbb3211 = L.marker(
+                [-24.204389268549562, -50.917021344638776],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_b68cc4c6a7caa18da99fb716cec8fa01 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_58296105f0c11cb5121faf148e381184 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_563fdcdb9ac863d46b800684641aaf9a = $(`<div id="html_563fdcdb9ac863d46b800684641aaf9a" style="width: 100.0%; height: 100.0%;">             <b>Posto Confiança</b><br>             Endereço: Avenida Paraná, 1489 A, Km BR 376, Ortigueira/PR, CEP 84350-000<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_58296105f0c11cb5121faf148e381184.setContent(html_563fdcdb9ac863d46b800684641aaf9a);
+            
+        
+
+        marker_125020c0e5dfe580b36011d2cfbb3211.bindPopup(popup_58296105f0c11cb5121faf148e381184)
+        ;
+
+        
+    
+    
+                marker_125020c0e5dfe580b36011d2cfbb3211.setIcon(icon_b68cc4c6a7caa18da99fb716cec8fa01);
+            
+    
+            var marker_0b3bbd81d595be1f7aaca4cd1e2b43f0 = L.marker(
+                [-24.20352351190647, -50.916106436169905],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_a791ee327db80513bcf1de0be7620e7e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_912099042bd4614c7acebdbda6b2cb89 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_552d0941b3932a5fdd3526e7cd469910 = $(`<div id="html_552d0941b3932a5fdd3526e7cd469910" style="width: 100.0%; height: 100.0%;">             <b>Posto Deduch</b><br>             Endereço: Rodovia Do Café, 1275, Km 331 BR 376 SL 01, Bairro Dos Francas, Ortigueira/PR, CEP 84350-000<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_912099042bd4614c7acebdbda6b2cb89.setContent(html_552d0941b3932a5fdd3526e7cd469910);
+            
+        
+
+        marker_0b3bbd81d595be1f7aaca4cd1e2b43f0.bindPopup(popup_912099042bd4614c7acebdbda6b2cb89)
+        ;
+
+        
+    
+    
+                marker_0b3bbd81d595be1f7aaca4cd1e2b43f0.setIcon(icon_a791ee327db80513bcf1de0be7620e7e);
+            
+    
+            var marker_48066d09a763bb19b5362e6e0607c366 = L.marker(
+                [-24.204968642511304, -50.91986551306626],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_56dd750e888f04051e83c21c279ed4ff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb7477f2eae5534e56fa2b295f35a263 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_389b9710ec0b2542592ce7287493be10 = $(`<div id="html_389b9710ec0b2542592ce7287493be10" style="width: 100.0%; height: 100.0%;">             <b>Chaguinhas Comércio de Derivados de Petróleo</b><br>             Endereço: Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_eb7477f2eae5534e56fa2b295f35a263.setContent(html_389b9710ec0b2542592ce7287493be10);
+            
+        
+
+        marker_48066d09a763bb19b5362e6e0607c366.bindPopup(popup_eb7477f2eae5534e56fa2b295f35a263)
+        ;
+
+        
+    
+    
+                marker_48066d09a763bb19b5362e6e0607c366.setIcon(icon_56dd750e888f04051e83c21c279ed4ff);
+            
+    
+            var marker_af8cbde9ce22e3aeec9db4342967b715 = L.marker(
+                [-24.205820724894952, -50.922000760496026],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_63172933d6423c4813405ed80fab74d9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_50909f06330a1581a96b5ce85ca06bb2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d3623b979a2b79a9e0a0dc3389bdef7e = $(`<div id="html_d3623b979a2b79a9e0a0dc3389bdef7e" style="width: 100.0%; height: 100.0%;">             <b>Martinez Conveniência</b><br>             Endereço: Ortigueira/PR<br>             Cidade: Ortigueira<br>             Contato: Não especificado<br></div>`)[0];
+                popup_50909f06330a1581a96b5ce85ca06bb2.setContent(html_d3623b979a2b79a9e0a0dc3389bdef7e);
+            
+        
+
+        marker_af8cbde9ce22e3aeec9db4342967b715.bindPopup(popup_50909f06330a1581a96b5ce85ca06bb2)
+        ;
+
+        
+    
+    
+                marker_af8cbde9ce22e3aeec9db4342967b715.setIcon(icon_63172933d6423c4813405ed80fab74d9);
+            
+    
+            var marker_089a49c98bfbb7972cb0534e564d94d4 = L.marker(
+                [-24.6492, -50.8466],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_1a943d21071e27e5fa4ea89b8cdc695b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1bfe40209530e119fcd124c7436ecc09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e7f5a4f6a0f4aaeff961f50bc3fbb80 = $(`<div id="html_7e7f5a4f6a0f4aaeff961f50bc3fbb80" style="width: 100.0%; height: 100.0%;">             <b>Rede 7 Reserva</b><br>             Endereço: Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_1bfe40209530e119fcd124c7436ecc09.setContent(html_7e7f5a4f6a0f4aaeff961f50bc3fbb80);
+            
+        
+
+        marker_089a49c98bfbb7972cb0534e564d94d4.bindPopup(popup_1bfe40209530e119fcd124c7436ecc09)
+        ;
+
+        
+    
+    
+                marker_089a49c98bfbb7972cb0534e564d94d4.setIcon(icon_1a943d21071e27e5fa4ea89b8cdc695b);
+            
+    
+            var marker_74578452b5d18a3c5d6b42a78014c5fe = L.marker(
+                [-24.649323947648224, -50.84717376387957],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_323de33f8cefb9a454cdcb85eceb317e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3deff29259b91dff1bcfacc2cb35dd8e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4fb7bb24bd64492195b6355bbf65c261 = $(`<div id="html_4fb7bb24bd64492195b6355bbf65c261" style="width: 100.0%; height: 100.0%;">             <b>Auto Posto Reserva</b><br>             Endereço: Rua Leôncio Miró Rocha, 997, Rodovia PR-441, Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: (42) 3276-1252<br></div>`)[0];
+                popup_3deff29259b91dff1bcfacc2cb35dd8e.setContent(html_4fb7bb24bd64492195b6355bbf65c261);
+            
+        
+
+        marker_74578452b5d18a3c5d6b42a78014c5fe.bindPopup(popup_3deff29259b91dff1bcfacc2cb35dd8e)
+        ;
+
+        
+    
+    
+                marker_74578452b5d18a3c5d6b42a78014c5fe.setIcon(icon_323de33f8cefb9a454cdcb85eceb317e);
+            
+    
+            var marker_e9c65373093aeb46c17071087e379e3c = L.marker(
+                [-24.648331177237782, -50.846790932517436],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_273955a9fedea643cb62d5f9fa029631 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8341c35cad40f0a7379704615c22964 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b62aeba16c963f496642939602cb5dc1 = $(`<div id="html_b62aeba16c963f496642939602cb5dc1" style="width: 100.0%; height: 100.0%;">             <b>Posto Guapo</b><br>             Endereço: Rua Leôncio Miro Rocha, 906, Centro, Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_a8341c35cad40f0a7379704615c22964.setContent(html_b62aeba16c963f496642939602cb5dc1);
+            
+        
+
+        marker_e9c65373093aeb46c17071087e379e3c.bindPopup(popup_a8341c35cad40f0a7379704615c22964)
+        ;
+
+        
+    
+    
+                marker_e9c65373093aeb46c17071087e379e3c.setIcon(icon_273955a9fedea643cb62d5f9fa029631);
+            
+    
+            var marker_5d75e3e2b6efd469d1e989126242359a = L.marker(
+                [-24.650536331952296, -50.84596403705044],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_bd535801a1191b6e4eb382a95bdc74b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f6c12864e5741db1c55325d5a56d4dfb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed4c2bccff5ddf1f91bacf3a3686a15f = $(`<div id="html_ed4c2bccff5ddf1f91bacf3a3686a15f" style="width: 100.0%; height: 100.0%;">             <b>Posto Boa Vista</b><br>             Endereço: Avenida Coronel Rogério Borba, S/N, Condomínio Jardim América, Centro, Reserva/PR, CEP 84320-000<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_f6c12864e5741db1c55325d5a56d4dfb.setContent(html_ed4c2bccff5ddf1f91bacf3a3686a15f);
+            
+        
+
+        marker_5d75e3e2b6efd469d1e989126242359a.bindPopup(popup_f6c12864e5741db1c55325d5a56d4dfb)
+        ;
+
+        
+    
+    
+                marker_5d75e3e2b6efd469d1e989126242359a.setIcon(icon_bd535801a1191b6e4eb382a95bdc74b2);
+            
+    
+            var marker_5947aaf49d2d7146674ba9ee2b724f20 = L.marker(
+                [-24.651501791509187, -50.84553489292863],
+                {
+}
+            ).addTo(map_2a87572d88d299473359e6365293ec8b);
+        
+    
+            var icon_abcfe40e5ecc9bb08a739d52928b7887 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d031a993c6df5b2ca38a0ccda92d0fe8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22d09b62cc7f3c354dfe3210500d0cff = $(`<div id="html_22d09b62cc7f3c354dfe3210500d0cff" style="width: 100.0%; height: 100.0%;">             <b>Posto Shell</b><br>             Endereço: Reserva/PR<br>             Cidade: Reserva<br>             Contato: Não especificado<br></div>`)[0];
+                popup_d031a993c6df5b2ca38a0ccda92d0fe8.setContent(html_22d09b62cc7f3c354dfe3210500d0cff);
+            
+        
+
+        marker_5947aaf49d2d7146674ba9ee2b724f20.bindPopup(popup_d031a993c6df5b2ca38a0ccda92d0fe8)
+        ;
+
+        
+    
+    
+                marker_5947aaf49d2d7146674ba9ee2b724f20.setIcon(icon_abcfe40e5ecc9bb08a739d52928b7887);
+            
+</script>
+</html>
